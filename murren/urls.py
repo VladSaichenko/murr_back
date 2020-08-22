@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from .views import MurrensMethods, GetAllMurrens, PublicMurrenInfo, GetTanochkaImg
+from .views import MurrensMethods, GetAllMurrens, PublicMurrenInfo, GetTanochkaImg, GoogleLogin
 
 urlpatterns = [
     path('', MurrensMethods.as_view(), name='MurrensMethods'),
@@ -11,5 +11,6 @@ urlpatterns = [
 
     path('token_create/', TokenObtainPairView.as_view(), name='obtain_token_pair'),
     path('token_refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('oauth/google/', GoogleLogin.as_view(), name='google_login')
 
 ]
